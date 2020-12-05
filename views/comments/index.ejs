@@ -1,0 +1,9 @@
+<%- include('../partials/head') %> 
+<%- include('../partials/navbar') %> 
+<h1>This is comment page</h1>
+<ul>
+    <% for(let c of comments){ %>
+      <li><b><%= c.username %> - <%= c.comment %> </b></li>
+    <% } %> 
+</ul>
+<%- include('../partials/footer') %> 

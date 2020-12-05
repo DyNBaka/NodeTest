@@ -17,6 +17,25 @@ app.get('/',(req, res)=>{
     res.render('start', { home: 'HOME PAGE'})
 })
 
+const comments = [
+    {
+        username: 'use1',
+        comment: 'sup ppl'
+    },
+    {
+        username: 'use2',
+        comment: 'sup use1'
+    },
+    {
+        username: 'use3',
+        comment: 'sup guys'
+    }
+
+]
+app.get('/comments',(req, res)=>{
+    res.render('comments/index', {comments})
+})
+
 app.post('/form',(req, res)=>{
     // const { query } = req.params
     let {meat, qty} = req.body
