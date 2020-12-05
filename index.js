@@ -30,10 +30,22 @@ const comments = [
         username: 'use3',
         comment: 'sup guys'
     }
-
 ]
+
+
 app.get('/comments',(req, res)=>{
     res.render('comments/index', {comments})
+})
+
+app.get('/comments/new',(req, res)=>{
+    res.render('comments/new')
+})
+
+app.post('/comments',(req, res) =>{
+    const {username, comment} = req.body
+    comments.push({username, comment})
+    res.redirect('/comments')
+    // res.render('comments/index', {comments})
 })
 
 app.post('/form',(req, res)=>{

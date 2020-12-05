@@ -1,6 +1,7 @@
 <%- include('../partials/head') %> 
 <%- include('../partials/navbar') %> 
 <h1>This is comment page</h1>
+<a href='/comments/new'>Make new comment</a>
 <ul>
     <% for(let c of comments){ %>
       <li><b><%= c.username %> - <%= c.comment %> </b></li>
