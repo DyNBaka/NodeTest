@@ -1,0 +1,16 @@
+<%- include('partials/head') %> 
+<%- include('partials/navbar') %> 
+<h1>this is <%= home %></h1>
+<h3>GET request test</h3>
+<form action="/getForm" method='get'>
+    <input type="text" name="meat" placeholder="Meat">
+    <input type="number" name="qty" placeholder="Quantity">
+    <button>Submit</button>
+</form> 
+<h3>POST request Test</h3>
+<form action='/form' method="post">
+    <input type="text" name="meat" placeholder="Meat">
+    <input type="number" name="qty" placeholder="Quantity">
+    <button>Submit</button>
+</form>
+<%- include('partials/footer') %> 
