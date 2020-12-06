@@ -1,0 +1,8 @@
+<%- include('../partials/head') %>
+<%- include('../partials/navbar') %>
+<h1>This is comment details page</h1>
+<h4>ID: <%= comment.id %></h4>
+<b><%= comment.username %> - <%= comment.comment %></b>
+<a href="/comments/<%= comment.id %>/edit">Edit</a>
+<a href='/comments'>Back to comments</a>
+<%- include('../partials/footer') %>
