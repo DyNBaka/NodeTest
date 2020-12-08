@@ -19,7 +19,7 @@ app.get('/',(req, res)=>{
     res.render('start', { home: 'HOME PAGE'})
 })
 
-const comments = [
+let comments = [
     {
         id:uuid(),
         username: 'use1',
@@ -60,18 +60,24 @@ app.patch('/comments/:id', (req, res) => {
     res.redirect('/comments')
 })
 
+
 app.get('/comments/:id/edit', (req, res) => {
     const{id} = req.params
     const comment = comments.find(c => c.id === id)
     res.render('comments/edit', {comment})
 })
 
-
-
 app.post('/comments',(req, res) =>{
     const { username, comment } = req.body
     comments.push({id: uuid(), username, comment})
     res.redirect('/comments')
+})
+
+app.delete('/comments/:id',(req, res)=>{
+    const {id} = req.params
+    comments = comments.filter(c => c.id !== id)
+    res.redirect('/comments')
+
 })
 
 app.post('/form',(req, res)=>{
