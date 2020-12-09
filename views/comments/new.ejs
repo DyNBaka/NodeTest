@@ -1,15 +1,18 @@
 <%- include('../partials/head') %> 
 <%- include('../partials/navbar') %> 
-<h1>This is making comment page</h1>
-<form action="/comments" method="post">
-    <section>
-        <input type="text" name="username" placeholder="Username">
-    </section>
-    <section>
-        <textarea name="comment" cols="30" rows="10"></textarea>
-    </section>
-    
-    <button>Submit</button>
-</form>
-<a href='/comments'>Return to comments</a>
+<div class="con">
+    <h1>This is making comment page</h1>
+    <form action="/comments" method="post">
+        <section>
+            <input type="text" name="username" placeholder="Username">
+        </section>
+        <section>
+            <textarea name="comment" cols="30" rows="10"></textarea>
+        </section>
+        
+        <button>Submit</button>
+    </form>
+    <a href='/comments'>Return to comments</a>  
+</div>
+
 <%- include('../partials/footer') %> 

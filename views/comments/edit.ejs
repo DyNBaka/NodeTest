@@ -1,15 +1,16 @@
 <%- include('../partials/head') %>
 <%- include('../partials/navbar') %>
-<h1>This is edit page</h1>
-<h4>ID: <%= comment.id %></h4>
-<b><%= comment.username %></b>
-<form action='/comments/<%= comment.id %>?_method=PATCH ' method='post'>
-    <textarea name="newcomment" cols="50" rows="5">
-        <%= comment.comment %> 
-    </textarea>
-    <button>Submit Change</button>
-</form>
+<div class="con">
+    <h1>This is edit page</h1>
+    <h4>ID: <%= comment.id %></h4>
+    <b><%= comment.username %></b>
+    <form action='/comments/<%= comment.id %>?_method=PATCH ' method='post'>
+        <textarea name="newcomment" cols="50" rows="5">
+            <%= comment.comment %> 
+        </textarea>
+        <button>Submit Change</button>
+    </form>
+    <a href='/comments'>Back to comments</a>
+</div>
 
-    
-<a href='/comments'>Back to comments</a>
 <%- include('../partials/footer') %>

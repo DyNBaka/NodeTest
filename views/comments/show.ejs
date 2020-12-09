@@ -1,11 +1,14 @@
 <%- include('../partials/head') %>
 <%- include('../partials/navbar') %>
-<h1>This is comment details page</h1>
-<h4>ID: <%= comment.id %></h4>
-<b><%= comment.username %> - <%= comment.comment %></b>
-<a href="/comments/<%= comment.id %>/edit">Edit</a>
-<form action="/comments/<%= comment.id %>?_method=DELETE" method="POST">
-    <button>Delete</button>
-</form>
-<a href='/comments'>Back to comments</a>
+<div class="con">
+    <h1>This is comment details page</h1>
+    <h4>ID: <%= comment.id %></h4>
+    <b><%= comment.username %> - <%= comment.comment %></b>
+    <a href="/comments/<%= comment.id %>/edit">Edit</a>
+    <form action="/comments/<%= comment.id %>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+    <a href='/comments'>Back to comments</a>
+</div>
+
 <%- include('../partials/footer') %>
