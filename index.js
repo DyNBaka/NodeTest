@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 const cors = require('cors')
 const { v4: uuid } = require('uuid')
 const commentRoute = require('./comments.js')
+const productRoute = require('./products.js')
 const { ROLES } = require('./data')
 
 
@@ -25,12 +26,13 @@ function log(req, res, next){
     next()
 }
 
+app.use('/comments', commentRoute)
+app.use('/products', productRoute)
 
 app.get('/',log,(req, res)=>{
     res.render('start', { home: 'HOME PAGE'})
 })
 
-app.use('/comments', commentRoute)
 
 app.post('/form',(req, res)=>{
     let {meat, qty} = req.body
@@ -38,29 +40,7 @@ app.post('/form',(req, res)=>{
     res.render('form', {msg})
 })
 
-app.listen(3000, ()=>{
-    console.log("Listening on port 3000")
-})
-
-
-
-// let comments = [
-//     {
-//         id:uuid(),
-//         username: 'use1',
-//         comment: 'sup ppl'
-//     },
-//     {
-//         id:uuid(),
-//         username: 'use2',
-//         comment: 'sup use1'
-//     },
-//     {
-//         id: uuid(),
-//         username: 'use3',
-//         comment: 'sup guys'
-//     }
-// ]
+app.listen(3000, ()=> console.log("Listening on port 3000"))
 
 
 // app.get('/comments',(req, res)=>{
