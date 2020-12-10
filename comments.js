@@ -20,17 +20,12 @@ let comments = [
     }
 ]
 
-function log(req, res, next){
-    console.log('requesting comment starting page')
-    next()
-}
-// function sup(req, res){
-//     console.log('LOGGING')
-//     res.end()
+// function log(req, res, next){
+//     console.log('requesting comment starting page')
+//     next()
 // }
 
-// router.get('/', log)
-router.get('/', log,(req, res)=>{
+router.get('/',(req, res)=>{
     res.render('comments/index', {comments})
 })
 
@@ -60,6 +55,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.post('/',(req, res) =>{
     const { username, comment } = req.body
+    // console.log(req.body)
     comments.push({id: uuid(), username, comment})
     res.redirect('/comments')
 })
@@ -70,8 +66,6 @@ router.delete('/:id',(req, res)=>{
     res.redirect('/comments')
 
 })
-
-
 module.exports = router
 
 
