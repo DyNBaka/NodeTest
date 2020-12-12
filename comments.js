@@ -1,5 +1,6 @@
 const express = require('express')
 const { v4: uuid } = require('uuid')
+const { ROLES } = require('./data')
 const router = express.Router()
 
 let comments = [
@@ -26,6 +27,10 @@ let comments = [
 // }
 
 router.get('/',(req, res)=>{
+    req.idk = ROLES
+    // console.log(req)
+    console.log(req.username)
+    console.log(req.idk)
     res.render('comments/index', {comments})
 })
 
