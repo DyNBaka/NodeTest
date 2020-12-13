@@ -1,0 +1,12 @@
+<%- include('../partials/head') %> 
+<%- include('../partials/navbar') %>
+<div class="con">
+  <h1>This is Products page</h1>
+  <a href="/">Start Page</a>
+  <ul>
+      <% for(let p of products) {%>
+        <li><%= p.name %> </li>
+        <% } %>  
+  </ul>
+</div> 
+<%- include('../partials/footer') %> 
