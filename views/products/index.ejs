@@ -3,9 +3,10 @@
 <div class="con">
   <h1>This is Products page</h1>
   <a href="/">Start Page</a>
+  <a href="/products/new">Add new product</a>
   <ul>
       <% for(let p of products) {%>
-        <li><%= p.name %> </li>
+        <li><a href="/products/<%= p._id %>"><%= p.name %></a></li>
         <% } %>  
   </ul>
 </div> 

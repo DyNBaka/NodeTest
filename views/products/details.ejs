@@ -1,0 +1,15 @@
+<%- include('../partials/head') %> 
+<%- include('../partials/navbar') %>
+<div class="con">
+  <h1>This is Products details page</h1>
+  <a href="/">Start Page</a>
+  <a href="/products">Product Page</a>
+  <a href="/products/<%= product._id %>/edit">Edit Product</a>
+  <h1><%= product.name %> </h1>
+  <ul>
+      <li>Price:<%= product.price %> </li>
+      <li>Category:<%= product.category %> </li>
+  </ul>
+
+</div> 
+<%- include('../partials/footer') %> 
