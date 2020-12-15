@@ -9,11 +9,14 @@
         <label for="price"></label>
         <input type="number" name="price" id='price' placeholder="Price" value='<%= product.price %> '>
         <select name="category">
-            <option value="fruit">Fruit</option>
-            <option value="vegetable">Vegetable</option>
-            <option value="dairy">Dairy</option>
+            <% for(let cat of categories){ %> 
+                <option value="<%= cat %>" <%= cat === product.category ? 'selected': '' %> ><%= cat %> </option>
+            <% } %>
         </select>
-        <button>Submit Item</button>
+        <button>Submit Changes</button>
+    </form>
+    <form action="/products/<%= product._id %>?_method=DELETE" method="POST">
+        <button>Delete Item</button>
     </form>
 </div> 
 <%- include('../partials/footer') %> 

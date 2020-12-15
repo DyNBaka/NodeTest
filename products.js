@@ -10,13 +10,15 @@ mongoose.connect('mongodb://localhost:27017/farmStand', {useNewUrlParser: true, 
   console.log(err)
 })
 
+const categories = ['fruit', 'vegetable', 'dairy']
+
 router.get('/',async (req, res)=>{
     const products = await Product.find({})
     res.render('products/index', {products})
 })
 
 router.get('/new', (req,res) =>{
-  res.render('products/add')
+  res.render('products/add', {categories})
 })
 
 router.get('/:id',async (req, res)=>{
@@ -38,15 +40,22 @@ router.post('/', async (req, res)=>{
 router.get('/:id/edit',async(req, res)=>{
   const {id} = req.params
   const product = Product.findById(id)
-  res.render('products/edit', { product })
+  res.render('products/edit', { product, categories })
 })
 
-router.put('/products/:id', async(req, res)=>{
+router.put('/:id', async(req, res)=>{
   const {id} = req.params
-  // const product = await Product.findByIdAndUpdate(id, req.body)
+  // const product = await Product.findByIdAndUpdate(id, req.body, {runValidators : true, new: true})
   console.log(req.body)
+  // res.redirect(`/products/${product._id}`, {product})
   res.send('PUT SUCCESS')
 
+})
+
+router.delete('/:id', (req, res)=>{
+  const {id} = req.params
+  await Product.findByIdAndDelete(id)
+  res.redirect('/products')
 })
 
 
