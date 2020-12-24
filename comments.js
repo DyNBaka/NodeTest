@@ -2,6 +2,7 @@ const express = require('express')
 const { v4: uuid } = require('uuid')
 const { ROLES } = require('./data')
 const router = express.Router()
+const AppError = require('./AppError')
 
 let comments = [
     {
@@ -42,6 +43,7 @@ router.get('/:id', (req, res) => {
     const { id } = req.params
     const comment = comments.find(c => c.id === id)
     res.render('comments/show', {comment})
+    
 })
 
 router.patch('/:id', (req, res) => {

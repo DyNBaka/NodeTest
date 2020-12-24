@@ -68,5 +68,10 @@ app.post('/form',(req, res)=>{
     res.render('form', {msg})
 })
 
+app.use((err,req,res,next)=>{
+  const {status = 500, message = 'Something went wrong'} = err
+  res.status(500).send(message)
+})
+
 app.listen(3000, ()=> console.log("Listening on port 3000"))
 
