@@ -50,7 +50,11 @@ router.post('/:farm_id/products', async(req, res)=>{
   await product.save()
   res.redirect(`/farms/${farm_id}`)
   
-  
+})
+
+router.delete('/:id', async(req,res)=>{
+  const farm = await Farm.findByIdAndDelete(req.params.id)
+  res.redirect('/farms')
 })
 
 
