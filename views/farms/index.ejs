@@ -1,0 +1,13 @@
+<%- include('../partials/head') %> 
+<%- include('../partials/navbar') %>
+<div class="con">
+  <h1>This is Farm page</h1>
+  <a href="/">Start Page</a>
+  <a href="/farms/new">Add new farm</a>
+  <ul>
+      <% for(let f of farms) {%>
+        <li><a href="/farms/<%= f._id %>"><%= f.name %></a></li>
+        <% } %>  
+  </ul>
+</div> 
+<%- include('../partials/footer') %> 

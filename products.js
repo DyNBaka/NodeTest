@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
-const Product = require('./models/product')
+const {Product} = require('./models/product')
+const Farm = require('./models/farm')
 
 mongoose.connect('mongodb://localhost:27017/farmStand', {useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
   console.log('CONNECTION OPEN FROM Product')
@@ -23,7 +24,7 @@ router.get('/new', (req,res) =>{
 
 router.get('/:id',async (req, res)=>{
   const { id } = req.params
-  const product = await Product.findById(id)
+  const product = await Product.findById(id).populate('farm','name')
   console.log(product)
   res.render('products/details', {product})
   // res.send('Details page')
@@ -52,7 +53,7 @@ router.put('/:id', async(req, res)=>{
 
 })
 
-router.delete('/:id', (req, res)=>{
+router.delete('/:id', async(req, res)=>{
   const {id} = req.params
   await Product.findByIdAndDelete(id)
   res.redirect('/products')

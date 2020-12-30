@@ -4,6 +4,7 @@ const app = express()
 const methodOverride = require('method-override')
 const commentRoute = require('./comments.js')
 const productRoute = require('./products.js')
+const farmRoute = require('./farms.js')
 const { ROLES, users } = require('./data')
 const mongodb = require('mongodb')
 const mongoose = require('mongoose')
@@ -55,6 +56,7 @@ function log(req, res, next){
 
 app.use('/comments', commentRoute)
 app.use('/products', productRoute)
+app.use('/farms', farmRoute)
 
 app.get('/',log,(req, res)=>{
     console.log(req.use)

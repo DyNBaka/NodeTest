@@ -1,9 +1,10 @@
 <%- include('../partials/head') %> 
 <%- include('../partials/navbar') %>
 <div class="con">
-    <h1>This is Products new page</h1>
+    <h1><%= farm.name%></h1>
+    <h4>Add a product</h4>
     <a href="/">Start Page</a>
-    <form action="/products" method="POST">
+    <form action="/farms/<%= farm._id %>/products" method="POST">
         <label for="name">Item Name</label>
         <input type="text" name="name" id='name' placeholder="Item Name">
         <label for="price"></label>
